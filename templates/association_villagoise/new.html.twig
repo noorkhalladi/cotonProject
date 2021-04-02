@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Association Villagoise{% endblock %}
+
+{% block body %}
+    <h1><center>Create new Association Villagoise</center></h1>
+
+    {{ include('association_villagoise/_form.html.twig') }}
+
+    <a href="{{ path('association_villagoise_index') }}">back to list</a>
+{% endblock %}

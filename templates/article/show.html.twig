@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Article{% endblock %}
+
+{% block body %}
+    <h1><center>Article</center></h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ article.id }}</td>
+            </tr>
+            <tr>
+                <th>Code</th>
+                <td>{{ article.code }}</td>
+            </tr>
+            <tr>
+                <th>Libelle</th>
+                <td>{{ article.libelle }}</td>
+            </tr>
+            <tr>
+                <th>Quantité Disponible </th>
+                <td>{{ article.qteDispo }}</td>
+            </tr>
+            <tr>
+                <th>Unite de Vente</th>
+                <td>{{ article.uniteVente }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('article_index') }}">back to list</a>
+
+    <a href="{{ path('article_edit', {'id': article.id}) }}">edit</a>
+
+    {{ include('article/_delete_form.html.twig') }}
+{% endblock %}

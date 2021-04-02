@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Bordereau Reglement% endblock %}
+
+{% block body %}
+    <h1><center>Bordereau Reglement</center></h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ bordereau_reg.id }}</td>
+            </tr>
+            <tr>
+                <th>Numero du Bordereau de Reglement</th>
+                <td>{{ bordereau_reg.numBorReg }}</td>
+            </tr>
+            <tr>
+                <th>Date</th>
+                <td>{{ bordereau_reg.date ? bordereau_reg.date|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Montant Regle</th>
+                <td>{{ bordereau_reg.mntReg }}</td>
+            </tr>
+            <tr>
+                <th>Modalite de Paiement</th>
+                <td>{{ bordereau_reg.modPaie }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('bordereau_reg_index') }}">back to list</a>
+
+    <a href="{{ path('bordereau_reg_edit', {'id': bordereau_reg.id}) }}">edit</a>
+
+    {{ include('bordereau_reg/_delete_form.html.twig') }}
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Facture Livraison Coton{% endblock %}
+
+{% block body %}
+    <h1><center>Create new Facture Livraison Coton</center></h1>
+
+    {{ include('facture_liv_cot/_form.html.twig') }}
+
+    <a href="{{ path('facture_liv_cot_index') }}">back to list</a>
+{% endblock %}
