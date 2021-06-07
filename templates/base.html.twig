@@ -49,7 +49,7 @@
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Page</a>
               <div class="dropdown-menu" aria-labelledby="dropdown04">
-              <a class="dropdown-item" href={% if app.user %}"{{path('user_index')}}"{% else %} "#" onclick="alert('vous devez être connecté à un compte ADMIN')" {% endif %}>Users</a>
+              <a class="dropdown-item" href={% if app.user and app.user.roles =="admin" %} "{{path('user_index')}}"{% else %} "#" onclick="alert('vous devez être connecté à un compte ADMIN')" {% endif %}>Users</a>
                 <a class="dropdown-item" href={% if app.user %}"{{path('transporteur_index')}}"{% else %} "#" onclick="alert('vous devez être connecté à un compte')" {% endif %}>Transpoteurs</a>
                 <a class="dropdown-item" href={% if app.user %}"{{path('vehicule_index')}}"{% else %} "#" onclick="alert('vous devez être connecté à un compte')" {% endif %}>Véhicules</a>
               </div>
