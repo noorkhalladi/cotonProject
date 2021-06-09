@@ -5,7 +5,8 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
-use App\Entity\BordereauReg;
+use App\Entity\FactureLivInt;
+use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -22,14 +23,17 @@ class BordereauRegType extends AbstractType
             ])
             ->add('mntReg',NumberType::class)
             ->add('modPaie',TextType::class)
-            ->add('factureLivInts',ChoiceType::class)
         ;
     }
-
-    public function configureOptions(OptionsResolver $resolver)
-    {
-        $resolver->setDefaults([
-            'data_class' => BordereauReg::class,
-        ]);
+    public function addElements(FormInterface $form, FactureLivInt $factureLivInts = null) {
+        // 4. Add the province element
+        $form ->add('factureLivInts', EntityType::class, array(
+            'required' => true,
+            'data' => $factureLivInts,
+            'placeholder' => 'Select a factureLivInts...',
+            'class' => 'AppBundle:factureLivInts'
+        ));
     }
+
+ 
 }

@@ -32,18 +32,18 @@
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">LA GESTION DES CREDIT AUX AGRICULTE</a>
               <div class="dropdown-menu" aria-labelledby="dropdown04">
-              	<a class="dropdown-item" href={% if app.user and app.user.username == 'cozoc@gmail.com' %}"{{path('besoin_index')}}"{% else %} "#" onclick="alert('vous devez être connecté à un compte cozoc')" {% endif %} >Gestion Des Expressions Des Besoins</a>
-                <a class="dropdown-item" href={% if app.user and app.user.username == 'rf@gmail.com' %}"{{path('bordereau_reg_index')}}"{% else %} "#" onclick="alert('vous devez être connecté à un compte responsable financier')" {% endif %}>Gestion Des Bordereaux De Reglement</a>
-                <a class="dropdown-item" href={% if app.user and app.user.username == 'cgi@gmail.com' %}"{{path('bordereau_liv_index')}}"{% else %} "#" onclick="alert('vous devez être connecté à un compte CGI')" {% endif %}>Gestion Des Bordereaux De Livraison</a>
-                <a class="dropdown-item" href={% if app.user and app.user.username == 'cgi@gmail.com' %}"{{path('facture_liv_int_index')}}"{% else %} "#" onclick="alert('vous devez être connecté à un compte CGI')" {% endif %}>Gestion Des Factures De Livraison Intrant</a>
+              	<a class="dropdown-item" href={% if app.user and ( app.user.username == 'cozoc@gmail.com' or app.user.username == 'noor@gmail.com') %}"{{path('besoin_index')}}"{% else %} "#" onclick="alert('vous devez être connecté à un compte cozoc')" {% endif %} >Gestion Des Expressions Des Besoins</a>
+                <a class="dropdown-item" href={% if app.user and ( app.user.username == 'rf@gmail.com' or app.user.username == 'noor@gmail.com') %}"{{path('bordereau_reg_index')}}"{% else %} "#" onclick="alert('vous devez être connecté à un compte responsable financier')" {% endif %}>Gestion Des Bordereaux De Reglement</a>
+                <a class="dropdown-item" href={% if app.user and ( app.user.username == 'cgi@gmail.com' or app.user.username == 'noor@gmail.com') %}"{{path('bordereau_liv_index')}}"{% else %} "#" onclick="alert('vous devez être connecté à un compte CGI')" {% endif %}>Gestion Des Bordereaux De Livraison</a>
+                <a class="dropdown-item" href={% if app.user and ( app.user.username == 'cgi@gmail.com' or app.user.username == 'noor@gmail.com') %}"{{path('facture_liv_int_index')}}"{% else %} "#" onclick="alert('vous devez être connecté à un compte CGI')" {% endif %}>Gestion Des Factures De Livraison Intrant</a>
               </div>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">LA GESTION DE COLLECTE DU COTON</a>
               <div class="dropdown-menu" aria-labelledby="dropdown04">
-              	<a class="dropdown-item" href={% if app.user and app.user.username == 'gpb@gmail.com' %}"{{path('ticket_pesee_index')}}"{% else %} "#" onclick="alert('vous devez être connecté à un compte de gestion de pont de bascule')" {% endif %}>Gestion Des Tickets De Pesée</a>
-                <a class="dropdown-item" href={% if app.user and app.user.username == 'rf@gmail.com' %}"{{path('facture_liv_cot_index')}}"{% else %} "#" onclick="alert('vous devez être connecté à un compte responsable financier')" {% endif %}>Gestion Des Factures De Livraison Coton</a>
-                <a class="dropdown-item" href={% if app.user and app.user.username == 'rf@gmail.com' %}"{{path('facture_globale_index')}}"{% else %} "#" onclick="alert('vous devez être connecté à un compte responsable financier')" {% endif %}>Gestion Des Factures Globales</a>
+              	<a class="dropdown-item" href={% if app.user and ( app.user.username == 'gpb@gmail.com' or app.user.username == 'noor@gmail.com') %}"{{path('ticket_pesee_index')}}"{% else %} "#" onclick="alert('vous devez être connecté à un compte de gestion de pont de bascule')" {% endif %}>Gestion Des Tickets De Pesée</a>
+                <a class="dropdown-item" href={% if app.user and (app.user.username == 'rf@gmail.com'  or app.user.username == 'noor@gmail.com')%}"{{path('facture_liv_cot_index')}}"{% else %} "#" onclick="alert('vous devez être connecté à un compte responsable financier')" {% endif %}>Gestion Des Factures De Livraison Coton</a>
+                <a class="dropdown-item" href={% if app.user and ( app.user.username == 'rf@gmail.com'  or app.user.username == 'noor@gmail.com') %}"{{path('facture_globale_index')}}"{% else %} "#" onclick="alert('vous devez être connecté à un compte responsable financier')" {% endif %}>Gestion Des Factures Globales</a>
               </div>
             </li>
             <li class="nav-item dropdown">

@@ -1,11 +1,14 @@
 <?php
 
 namespace App\Form;
+
+use App\Entity\BordereauLiv;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use App\Entity\FactureLivInt;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -26,15 +29,17 @@ class FactureLivIntType extends AbstractType
                 'widget' => 'single_text',
             ])
             ->add('obs',TextType::class)
-            ->add('bordereauLiv',ChoiceType::class)
-            ->add('bordereauReg',ChoiceType::class)
         ;
     }
 
-    public function configureOptions(OptionsResolver $resolver)
-    {
-        $resolver->setDefaults([
-            'data_class' => FactureLivInt::class,
-        ]);
+    public function addElements(FormInterface $form, BordereauLiv $bordereauLiv = null) {
+        // 4. Add the province element
+        $form ->add('bordereauLiv', EntityType::class, array(
+            'required' => true,
+            'data' => $bordereauLiv,
+            'placeholder' => 'Select bordereauLiv...',
+            'class' => 'AppBundle:bordereauLiv'
+        ));
     }
+    
 }

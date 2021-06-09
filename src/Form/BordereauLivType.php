@@ -1,13 +1,16 @@
 <?php
 
 namespace App\Form;
+
+use App\Entity\Besoin;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
-use App\Entity\BordereauLiv;
+use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class BordereauLivType extends AbstractType
@@ -31,14 +34,16 @@ class BordereauLivType extends AbstractType
                 'widget' => 'single_text',
             ])
             ->add('tauxRem',NumberType::class)
-            ->add('besoin',ChoiceType::class)
         ;
     }
-
-    public function configureOptions(OptionsResolver $resolver)
-    {
-        $resolver->setDefaults([
-            'data_class' => BordereauLiv::class,
-        ]);
+    public function addElements(FormInterface $form, Besoin $besoin = null) {
+        // 4. Add the province element
+        $form ->add('besoins', EntityType::class, array(
+            'required' => true,
+            'data' => $besoin,
+            'placeholder' => 'Select besoin...',
+            'class' => 'AppBundle:Besoin'
+        ));
     }
+
 }

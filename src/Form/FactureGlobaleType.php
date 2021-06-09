@@ -23,7 +23,7 @@ class FactureGlobaleType extends AbstractType
                 // renders it as a single text box
                 'widget' => 'single_text',
             ])
-            ->add('obs',DTextType::class)
+            ->add('obs',TextType::class)
             ->add('credit',TextType::class)
         ;
     }
