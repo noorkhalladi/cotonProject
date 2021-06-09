@@ -1,11 +1,30 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Facture Livraison Coton{% endblock %}
+{% block head %}
+   <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+	<link rel="stylesheet" href="css/style.css">
+{% endblock %}
 
 {% block body %}
-    <h1><center>Facture Livraison Coton</center></h1>
 
-    <table class="table">
+   <section class="ftco-section">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-6 text-center mb-5">
+					<h2 class="heading-section">Liste des Factures de Livraison Coton</h2>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<div class="table-wrap">
+						<table class="table table-striped">
         <thead>
             <tr>
                 <th>Id</th>
@@ -29,8 +48,8 @@
                 <td>{{ facture_liv_cot.datePaie ? facture_liv_cot.datePaie|date('Y-m-d') : '' }}</td>
                 <td>{{ facture_liv_cot.obs }}</td>
                 <td>
-                    <a href="{{ path('facture_liv_cot_show', {'id': facture_liv_cot.id}) }}">show</a>
-                    <a href="{{ path('facture_liv_cot_edit', {'id': facture_liv_cot.id}) }}">edit</a>
+                    <a href="{{ path('facture_liv_cot_show', {'id': facture_liv_cot.id}) }}"class="btn btn-success">show</a>
+                    <a href="{{ path('facture_liv_cot_edit', {'id': facture_liv_cot.id}) }}"class="btn btn-success">edit</a>
                 </td>
             </tr>
         {% else %}
@@ -40,6 +59,16 @@
         {% endfor %}
         </tbody>
     </table>
+        <a href="{{ path('facture_liv_cot_new') }}"class="btn btn-warning">Create new</a>
 
-    <a href="{{ path('facture_liv_cot_new') }}">Create new</a>
+</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<script src="js/jquery.min.js"></script>
+  <script src="js/popper.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/main.js"></script>
 {% endblock %}

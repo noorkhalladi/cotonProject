@@ -1,9 +1,28 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Besoins{% endblock %}
+{% block head %}
+<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+	<link rel="stylesheet" href="css/style.css">
+{% endblock %}
 {% block body %}
-    <h1><center>Besoins</center></h1>
+<section class="ftco-section">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-6 text-center mb-5">
+					<h2 class="heading-section">Liste des besoins</h2>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<div class="table-wrap">
+   
 
     <table class="table">
         <thead>
@@ -23,8 +42,8 @@
                 <td>{{ besoin.libelle }}</td>
                 <td>{{ besoin.date ? besoin.date|date('Y-m-d') : '' }}</td>
                 <td>
-                    <a href="{{ path('besoin_show', {'id': besoin.id}) }}">show</a>
-                    <a href="{{ path('besoin_edit', {'id': besoin.id}) }}">edit</a>
+                    <a href="{{ path('besoin_show', {'id': besoin.id}) }}"class="btn btn-success">show</a>
+                    <a href="{{ path('besoin_edit', {'id': besoin.id}) }}"class="btn btn-success">edit</a>
                 </td>
             </tr>
         {% else %}
@@ -34,6 +53,17 @@
         {% endfor %}
         </tbody>
     </table>
+        <a href="{{ path('besoin_new') }}"class="btn btn-warning">Create new</a>
 
-    <a href="{{ path('besoin_new') }}">Create new</a>
+    	</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<script src="js/jquery.min.js"></script>
+  <script src="js/popper.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/main.js"></script>
+
 {% endblock %}

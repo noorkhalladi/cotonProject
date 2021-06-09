@@ -1,21 +1,38 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Tickets De Pesées{% endblock %}
+{% block head %}
+  <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+	<link rel="stylesheet" href="css/style.css">
+{% endblock %}
 {% block body %}
-    <h1><center>Tickets De Pesées</center></h1>
-
-    <table class="table">
+    <section class="ftco-section">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-6 text-center mb-5">
+					<h2 class="heading-section">Liste de Tickets De Pesées </h2>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<div class="table-wrap">
+						<table class="table table-striped">
         <thead>
             <tr>
                 <th>Id</th>
                 <th>Numero du ticket</th>
                 <th>Compagne</th>
                 <th>Numero du Caisse</th>
-                <th>Date Paiment1</th>
-                <th>Date Paiement2</th>
-                <th>Heure Paiment1</th>
-                <th>Heure Paiement2</th>
+                <th>Date Paiment 1</th>
+                <th>Date Paiement 2</th>
+                <th>Heure Paiment 1</th>
+                <th>Heure Paiement 2</th>
                 <th>Peseur</th>
                 <th>Poids P1</th>
                 <th>Poids P2</th>
@@ -37,8 +54,8 @@
                 <td>{{ ticket_pesee.poidsP1 }}</td>
                 <td>{{ ticket_pesee.poidsP2 }}</td>
                 <td>
-                    <a href="{{ path('ticket_pesee_show', {'id': ticket_pesee.id}) }}">show</a>
-                    <a href="{{ path('ticket_pesee_edit', {'id': ticket_pesee.id}) }}">edit</a>
+                    <a href="{{ path('ticket_pesee_show', {'id': ticket_pesee.id}) }}"class="btn btn-success">show</a>
+                    <a href="{{ path('ticket_pesee_edit', {'id': ticket_pesee.id}) }}"class="btn btn-success">edit</a>
                 </td>
             </tr>
         {% else %}
@@ -48,6 +65,16 @@
         {% endfor %}
         </tbody>
     </table>
+        <a href="{{ path('ticket_pesee_new') }}"class="btn btn-warning">Create new</a>
 
-    <a href="{{ path('ticket_pesee_new') }}">Create new</a>
+</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<script src="js/jquery.min.js"></script>
+  <script src="js/popper.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/main.js"></script>
 {% endblock %}
