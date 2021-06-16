@@ -1,10 +1,31 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Besoin{% endblock %}
+{% block head %}
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+{% endblock %}
 
 {% block body %}
+<style>
+    a.btn:hover {
+     -webkit-transform: scale(1.1);
+     -moz-transform: scale(1.1);
+     -o-transform: scale(1.1);
+ }
+ a.btn {
+     -webkit-transform: scale(0.8);
+     -moz-transform: scale(0.8);
+     -o-transform: scale(0.8);
+     -webkit-transition-duration: 0.5s;
+     -moz-transition-duration: 0.5s;
+     -o-transition-duration: 0.5s;
+ }
+ </style>
     <h1><center>Besoin</center></h1>
-
+<div class="container">
+	<div class="row">
     <table class="table">
         <tbody>
             <tr>
@@ -25,10 +46,15 @@
             </tr>
         </tbody>
     </table>
+ {{ include('besoin/_delete_form.html.twig') }}
 
-    <a href="{{ path('besoin_index') }}">back to list</a>
+      <a href="{{ path('besoin_edit', {'id': besoin.id}) }}"class="btn btn-primary a-btn-slide-text"> <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+        <span><strong>Edit</strong></span> </a>
+            <a href="{{ path('besoin_index') }}"class="btn btn-primary a-btn-slide-text"><span><strong>back to list</strong></span></a>
 
-    <a href="{{ path('besoin_edit', {'id': besoin.id}) }}">edit</a>
+       
 
-    {{ include('besoin/_delete_form.html.twig') }}
+   
+     </div>
+	</div>
 {% endblock %}

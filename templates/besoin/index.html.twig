@@ -3,6 +3,7 @@
 {% block title %}Besoins{% endblock %}
 {% block head %}
 <meta charset="utf-8">
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
@@ -10,8 +11,24 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	
 	<link rel="stylesheet" href="css/style.css">
+  
 {% endblock %}
 {% block body %}
+  <style>
+    a.btn:hover {
+     -webkit-transform: scale(1.1);
+     -moz-transform: scale(1.1);
+     -o-transform: scale(1.1);
+ }
+ a.btn {
+     -webkit-transform: scale(0.8);
+     -moz-transform: scale(0.8);
+     -o-transform: scale(0.8);
+     -webkit-transition-duration: 0.5s;
+     -moz-transition-duration: 0.5s;
+     -o-transition-duration: 0.5s;
+ }
+ </style>
 <section class="ftco-section">
 		<div class="container">
 			<div class="row justify-content-center">
@@ -42,8 +59,10 @@
                 <td>{{ besoin.libelle }}</td>
                 <td>{{ besoin.date ? besoin.date|date('Y-m-d') : '' }}</td>
                 <td>
-                    <a href="{{ path('besoin_show', {'id': besoin.id}) }}"class="btn btn-success">show</a>
-                    <a href="{{ path('besoin_edit', {'id': besoin.id}) }}"class="btn btn-success">edit</a>
+                    <a href="{{ path('besoin_show', {'id': besoin.id}) }}"class="btn btn-primary a-btn-slide-text"> <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+        <span><strong>View</strong></span></a>
+                    <a href="{{ path('besoin_edit', {'id': besoin.id}) }}"class="btn btn-primary a-btn-slide-text"> <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+        <span><strong>Edit</strong></span> </a>
                 </td>
             </tr>
         {% else %}
@@ -60,7 +79,8 @@
 			</div>
 		</div>
 	</section>
-
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 	<script src="js/jquery.min.js"></script>
   <script src="js/popper.js"></script>
   <script src="js/bootstrap.min.js"></script>
